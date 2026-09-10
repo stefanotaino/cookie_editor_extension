@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Domain Cookie Manager",
+  "version": "1.0",
+  "description": "View, edit, create, delete, and export cookies for the current tab's domain.",
+  "permissions": [
+    "cookies",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

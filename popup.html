@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: sans-serif; width: 380px; margin: 0; padding: 12px; background: #f9f9f9; color: #333; }
+    h3 { margin: 0 0 8px 0; font-size: 14px; color: #111; }
+    .domain-badge { font-size: 11px; background: #e0e0e0; padding: 2px 6px; border-radius: 4px; display: inline-block; margin-bottom: 10px; word-break: break-all; }
+    .actions { display: flex; gap: 6px; margin-bottom: 6px; }
+    button { background: #0066cc; color: white; border: none; padding: 6px 10px; border-radius: 4px; cursor: pointer; font-size: 12px; flex: 1; }
+    button:hover { background: #0052a3; }
+    button.danger { background: #cc3333; }
+    button.danger:hover { background: #a32929; }
+    button.success { background: #28a745; }
+    button.success:hover { background: #218838; }
+    #status-msg { font-size: 10px; text-align: center; margin-bottom: 8px; min-height: 14px; font-weight: bold; }
+    .cookie-list { max-height: 150px; overflow-y: auto; background: white; border: 1px solid #ddd; border-radius: 4px; padding: 4px; margin-bottom: 10px; }
+    .cookie-item { padding: 6px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center; font-size: 11px; }
+    .cookie-item:last-child { border-bottom: none; }
+    .cookie-info { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-right: 6px; flex: 1; }
+    .cookie-name { font-weight: bold; color: #0066cc; }
+    .form-group { background: white; padding: 8px; border: 1px solid #ddd; border-radius: 4px; margin-bottom: 8px; }
+    .form-group input { width: 100%; box-sizing: border-box; padding: 4px; margin-bottom: 6px; font-size: 11px; border: 1px solid #ccc; border-radius: 3px; }
+    textarea { width: 100%; height: 50px; font-size: 10px; resize: none; margin-top: 4px; box-sizing: border-box; }
+    label { font-size: 11px; font-weight: bold; display: block; margin-bottom: 2px; }
+  </style>
+</head>
+<body>
+  <h3>Domain Cookie Manager</h3>
+  <div id="domain" class="domain-badge">Loading...</div>
+
+  <div class="actions">
+    <button id="copy-curl" class="success">Copy cURL</button>
+    <button id="toggle-add">Add New</button>
+  </div>
+  <div id="status-msg"></div>
+
+  <div id="add-form" class="form-group" style="display: none;">
+    <input type="text" id="new-name" placeholder="Cookie Name">
+    <input type="text" id="new-value" placeholder="Cookie Value">
+    <button id="save-cookie">Save Cookie</button>
+  </div>
+
+  <div class="cookie-list" id="cookie-list">
+    <!-- Cookies injected here -->
+  </div>
+
+  <div class="form-group">
+    <label>Export JSON:</label>
+    <textarea id="export-json-data" readonly placeholder="Exported JSON will appear here..."></textarea>
+    <button id="export-file" style="margin-top: 4px;">Download JSON File</button>
+  </div>
+
+  <div class="form-group">
+    <label>Import JSON:</label>
+    <textarea id="import-json-data" placeholder="Paste JSON here to import..."></textarea>
+    <button id="import-json" class="success" style="margin-top: 4px;">Import JSON</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
